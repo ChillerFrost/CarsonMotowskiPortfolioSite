@@ -36,8 +36,9 @@ img{max-width:100%}
   box-shadow:inset 0 1px 0 color-mix(in srgb,#fff 45%,transparent),inset 0 -2px 0 color-mix(in srgb,#000 12%,transparent);
   display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:2rem;align-items:center;
   animation:settle .9s cubic-bezier(.2,.7,.2,1) both}
-.hero-photo{width:150px;height:190px;object-fit:cover;object-position:20% center;border:4px solid var(--paper);box-shadow:0 2px 8px color-mix(in srgb,#000 22%,transparent);transform:rotate(2deg)}
-@media (max-width:620px){.plate{grid-template-columns:1fr;gap:1.5rem}.hero-photo{width:128px;height:155px;justify-self:end;grid-row:1}.hero-copy{grid-row:2}}
+.hero-copy{grid-column:1;grid-row:1}
+.hero-photo{grid-column:2;grid-row:1;width:150px;height:190px;object-fit:cover;object-position:20% center;border:4px solid var(--plate-edge);box-shadow:0 2px 8px color-mix(in srgb,#000 22%,transparent);transform:rotate(2deg)}
+@media (max-width:620px){.plate{grid-template-columns:1fr;gap:1.5rem}.hero-photo{grid-column:1;width:128px;height:155px;justify-self:end;grid-row:1}.hero-copy{grid-column:1;grid-row:2}}
 @keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .rivet{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,color-mix(in srgb,#fff 60%,var(--plate)) 0,var(--plate-edge) 70%);box-shadow:0 1px 1px color-mix(in srgb,#000 25%,transparent)}
 .rivet.tl{top:14px;left:14px}.rivet.tr{top:14px;right:14px}.rivet.bl{bottom:14px;left:14px}.rivet.br{bottom:14px;right:14px}
@@ -67,7 +68,7 @@ main{max-width:1040px;margin:0 auto;padding:0 1.5rem 5rem}
 .meta{font-family:var(--display);font-size:.92rem;color:var(--graphite);margin:0 0 .75rem}
 
 .experience-photo{margin:0 0 2.25rem;padding:0 0 1rem;border-bottom:1px solid var(--rule)}
-.experience-photo img{display:block;width:100%;max-width:540px;max-height:360px;object-fit:cover;object-position:center;border:4px solid var(--paper)}
+.experience-photo img{display:block;width:100%;max-width:540px;max-height:360px;object-fit:cover;object-position:center;border:4px solid var(--plate-edge)}
 .experience-photo figcaption{font-family:var(--display);font-size:.82rem;color:var(--graphite);margin-top:.45rem}
 
 .beliefs{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1rem}
