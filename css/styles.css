@@ -1,0 +1,81 @@
+:root{
+  --bg:#E8EBEE; --paper:#F4F6F7; --ink:#1C2530; --graphite:#4B5664; --rule:#C3CAD2;
+  --plate:#D9DEE3; --plate-edge:#9AA4AF; --engrave:#27313D; --accent:#2D5A9E;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141A20; --paper:#1A2129; --ink:#E2E6EA; --graphite:#A3ADB8; --rule:#323C47;
+    --plate:#2A333D; --plate-edge:#4C5764; --engrave:#DCE2E8; --accent:#8DB0E6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141A20; --paper:#1A2129; --ink:#E2E6EA; --graphite:#A3ADB8; --rule:#323C47;
+  --plate:#2A333D; --plate-edge:#4C5764; --engrave:#DCE2E8; --accent:#8DB0E6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .plate{animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+img{max-width:100%}
+
+.site-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.site-nav .inner{max-width:1040px;margin:0 auto;padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.site-nav .mark{font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:750;text-decoration:none;color:var(--ink);letter-spacing:-.01em}
+.site-nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0;overflow-x:auto}
+.site-nav ul a{font-family:var(--display);font-size:.9rem;color:var(--graphite);text-decoration:none;white-space:nowrap}
+.site-nav ul a:hover{color:var(--ink)}
+
+.hero{max-width:1040px;margin:0 auto;padding:clamp(3rem,9vw,6.5rem) 1.5rem clamp(3rem,7vw,5rem)}
+.plate{position:relative;max-width:780px;background:
+  repeating-linear-gradient(90deg,transparent 0 2px,color-mix(in srgb,var(--plate-edge) 12%,transparent) 2px 3px),var(--plate);
+  border:1px solid var(--plate-edge);border-radius:6px;padding:clamp(1.75rem,5vw,3.25rem) clamp(1.5rem,5vw,3.5rem);
+  box-shadow:inset 0 1px 0 color-mix(in srgb,#fff 45%,transparent),inset 0 -2px 0 color-mix(in srgb,#000 12%,transparent);
+  animation:settle .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rivet{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,color-mix(in srgb,#fff 60%,var(--plate)) 0,var(--plate-edge) 70%);box-shadow:0 1px 1px color-mix(in srgb,#000 25%,transparent)}
+.rivet.tl{top:14px;left:14px}.rivet.tr{top:14px;right:14px}.rivet.bl{bottom:14px;left:14px}.rivet.br{bottom:14px;right:14px}
+.plate h1{font-family:var(--display);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(2.3rem,7.5vw,4.6rem);line-height:.98;letter-spacing:-.02em;margin:0 0 .6rem;color:var(--engrave);
+  text-shadow:0 1px 0 color-mix(in srgb,#fff 35%,transparent)}
+.plate .role{font-family:var(--display);font-variation-settings:"wdth" 100;font-size:clamp(1.05rem,2.4vw,1.3rem);color:var(--graphite);margin:0 0 2rem;max-width:34ch;line-height:1.4}
+.spec{display:grid;grid-template-columns:max-content 1fr;gap:.55rem 1.5rem;margin:0;border-top:1px solid var(--plate-edge);padding-top:1.4rem}
+.spec dt{font-family:var(--display);font-variation-settings:"wdth" 75;font-weight:600;font-size:.95rem;color:var(--graphite)}
+.spec dd{margin:0;font-family:var(--display);font-size:.98rem;color:var(--engrave)}
+@media (max-width:520px){.spec{grid-template-columns:1fr;gap:.1rem}.spec dd{margin-bottom:.7rem}}
+
+main{max-width:1040px;margin:0 auto;padding:0 1.5rem 5rem}
+.section{display:grid;grid-template-columns:200px minmax(0,1fr);gap:2.5rem;padding:3.25rem 0;border-top:1px solid var(--rule)}
+@media (max-width:760px){.section{grid-template-columns:1fr;gap:1rem;padding:2.5rem 0}}
+.section > h2{font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:700;font-size:1.35rem;line-height:1.2;margin:0;letter-spacing:-.01em;position:sticky;top:4.5rem;align-self:start}
+@media (max-width:760px){.section > h2{position:static}}
+.content{max-width:66ch}
+.content p{margin:0 0 1.1rem}
+.content h3{font-family:var(--display);font-variation-settings:"wdth" 100;font-weight:700;font-size:1.15rem;margin:0 0 .15rem;line-height:1.3}
+.meta{font-family:var(--display);font-size:.92rem;color:var(--graphite);margin:0 0 .75rem}
+
+.beliefs{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1rem}
+.beliefs li{padding-left:1.1rem;border-left:3px solid var(--accent)}
+.beliefs strong{font-family:var(--display);font-weight:650;display:block;font-size:1rem}
+
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:5px;top:.5rem;bottom:.5rem;width:1px;background:var(--rule)}
+.timeline > li{position:relative;padding-left:2rem;margin-bottom:2.5rem}
+.timeline > li:last-child{margin-bottom:0}
+.timeline > li::before{content:"";position:absolute;left:0;top:.45rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+
+.skills{display:grid;gap:1.4rem}
+.skills h3{font-size:1rem;margin-bottom:.5rem}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.tags li{font-family:var(--display);font-size:.9rem;padding:.2rem .65rem;border:1px solid var(--rule);border-radius:3px;background:var(--paper)}
+
+.projects{display:grid;gap:1.75rem}
+.projects article{padding:1.4rem 1.5rem;background:var(--paper);border:1px solid var(--rule);border-radius:4px}
+.projects article p:last-child{margin-bottom:0}
+
+.edu + .edu{margin-top:2rem}
+.content ul.plain{margin:.25rem 0 0;padding-left:1.1rem}
+
+footer{max-width:1040px;margin:0 auto;padding:2rem 1.5rem 3rem;border-top:1px solid var(--rule);font-family:var(--display);font-size:.9rem;color:var(--graphite)}
