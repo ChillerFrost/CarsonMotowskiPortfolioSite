@@ -96,6 +96,14 @@ main{max-width:1040px;margin:0 auto;padding:0 1.5rem 5rem}
 .projects{display:grid;gap:1.75rem}
 .projects article{padding:1.4rem 1.5rem;background:var(--paper);border:1px solid var(--rule);border-radius:4px}
 .projects article p:last-child{margin-bottom:0}
+.preview-button,.preview-close{font-family:var(--display);font-size:.9rem;font-weight:650;color:var(--engrave);padding:.45rem .8rem;border:1px solid var(--plate-edge);border-radius:3px;background:var(--paper);cursor:pointer}
+.preview-button:hover,.preview-button:focus-visible,.preview-close:hover,.preview-close:focus-visible{color:var(--accent);border-color:var(--accent)}
+
+.pdf-preview{width:min(900px,calc(100% - 2rem));height:min(85vh,760px);padding:0;border:1px solid var(--plate-edge);border-radius:4px;background:var(--paper);color:var(--ink)}
+.pdf-preview::backdrop{background:color-mix(in srgb,#000 60%,transparent)}
+.pdf-preview-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;border-bottom:1px solid var(--rule)}
+.pdf-preview-header h2{font-family:var(--display);font-size:1.05rem;margin:0}
+.pdf-preview iframe{display:block;width:100%;height:calc(100% - 58px);border:0;background:#fff}
 
 .edu + .edu{margin-top:2rem}
 .content ul.plain{margin:.25rem 0 0;padding-left:1.1rem}
